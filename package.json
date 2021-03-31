@@ -1,0 +1,25 @@
+{
+    "private": true,
+    "scripts": {
+        "prestart": "dotnet tool restore",
+        "start": "dotnet fable watch ./src --run node ./fusebox.js watch",
+        "prebuild": "dotnet tool restore",
+        "build": "dotnet fable ./src && node ./fusebox.js prod",
+        "test:live": "dotnet fable watch tests --run node ./fusebox.js test watch",
+        "build:test": "dotnet fable tests && node ./fusebox.js test",
+        "pretest": "dotnet tool restore",
+        "test": "dotnet fable tests --outDir dist/tests && mocha dist/tests -r esm"
+    },
+    "dependencies": {
+        "bulma": "0.9.2",
+        "date-fns": "2.19.0",
+        "react": "17.0.2",
+        "react-dom": "17.0.2"
+    },
+    "devDependencies": {
+        "esm": "3.2.25",
+        "fuse-box": "4.0.0",
+        "mocha": "8.3.2",
+        "node-sass": "^5.0.0"
+    }
+}
